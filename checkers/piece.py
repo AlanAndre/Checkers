@@ -1,6 +1,6 @@
 import pygame
 
-from constants import CROWN, GREY, SQUARE_SIZE
+from .constants import CROWN, GREY, SQUARE_SIZE
 
 
 class Piece:

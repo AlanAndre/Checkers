@@ -1,8 +1,8 @@
 import pygame
 
-from board import Board
-from constants import BLUE, RED, SQUARE_SIZE, WHITE
-from minimax import get_a_move
+from .board import Board
+from .constants import BLUE, RED, SQUARE_SIZE, WHITE
+from .minimax import get_a_move
 
 
 class Game:
@@ -10,7 +10,7 @@ class Game:
         self.win = win
         self.selected = None
         self.board = Board()
-        self.turn = RED  # can make random
+        self.turn = RED
         self.valid_moves = {}
 
     def update(self):
@@ -20,9 +20,9 @@ class Game:
 
     def winner(self):
         if self.board.red_left <= 0:
-            return WHITE
+            return 'WHITE'
         elif self.board.white_left <= 0:
-            return RED
+            return 'RED'
         elif not get_a_move(self.board, self.turn):
             return 'DRAW'
         return None

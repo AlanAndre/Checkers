@@ -1,7 +1,7 @@
 import pygame
 
-from constants import BLACK, COLS, RED, ROWS, SQUARE_SIZE, WHITE
-from piece import Piece
+from .constants import BLACK, COLS, RED, ROWS, SQUARE_SIZE, WHITE
+from .piece import Piece
 
 
 class Board:
@@ -73,9 +73,6 @@ class Board:
                     self.red_left -= 1
                 else:
                     self.white_left -= 1
-
-    # def winner(self):
-    #     return self.game.winner()
 
     def get_valid_moves(self, piece):
         moves = {}

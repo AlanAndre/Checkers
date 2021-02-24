@@ -1,4 +1,5 @@
 from copy import deepcopy
+
 import pygame
 
 RED = (255, 0, 0)
@@ -12,7 +13,7 @@ def algorithm(position, depth, max_player, game):
     if max_player:
         max_eval = float('-inf')
         best_move = None
-        for move in get_all_moves(position, WHITE):
+        for move in get_all_moves(position, WHITE, game):
             evaluation = algorithm(move, depth - 1, False, game)[0]
             max_eval = max(max_eval, evaluation)
             if max_eval == evaluation:
@@ -22,7 +23,7 @@ def algorithm(position, depth, max_player, game):
     else:
         min_eval = float('inf')
         best_move = None
-        for move in get_all_moves(position, RED):
+        for move in get_all_moves(position, RED, game):
             evaluation = algorithm(move, depth - 1, True, game)[0]
             min_eval = min(min_eval, evaluation)
             if min_eval == evaluation:
@@ -39,7 +40,7 @@ def simulate_move(piece, move, board, skip):
     return board
 
 
-def get_all_moves(board, color):
+def get_all_moves(board, color, game):
     moves = []
 
     for piece in board.get_all_pieces(color):
