@@ -14,7 +14,7 @@ BUTTON_STYLE = {"hover_color": BLUE,
                 }
 
 
-class Control(object):
+class Control:
     def __init__(self):
         self.screen = WIN
         self.AI = True
